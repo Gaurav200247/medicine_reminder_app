@@ -1,0 +1,27 @@
+user->login to app -> create a reminder -> can add caretakers -> when reminder rings ->
+sends 3 types of mesaages
+    email
+    sms
+    whatsapp
+
+reminder contains : 
+title, 
+desc,
+meds:[
+    {
+        med_name,
+        dosage,
+        med_desc,
+        med_prescription
+    }], 
+timing:{
+     hours,
+      minutes,
+      convention, // AM or PM
+}, 
+days, 
+
+
+user contains:
+all user data +
+caretakers : [{phone_no,email},{phone_no,email}], 

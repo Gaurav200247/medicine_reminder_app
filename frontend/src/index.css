@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+.form_container {
+  @apply flex flex-col justify-between items-start w-[35rem] p-5 my-10 rounded-lg shadow-lg bg-white;
+}
+.form_container > div {
+  @apply my-5 flex flex-col justify-between items-center w-full;
+}
+.form_container > div > div {
+  @apply w-full text-[0.8rem] flex justify-start items-start;
+}
+.form_container > div > div > label {
+  @apply mx-5 w-[20%] font-medium mt-2;
+}
+
+.form_container > div > div > input,
+textarea {
+  @apply mx-5 w-[80%] bg-slate-200 rounded-md p-2 shadow-md;
+}
+
+.form_container > div > p {
+  @apply w-full text-center text-[0.8rem] text-red-600;
+}
+
+.submit_btn {
+  @apply w-full rounded-md p-2 my-3 shadow-md hover:shadow-lg text-white bg-blue-500 hover:bg-blue-600 duration-300;
+}
+
+.auth_form_submit_btn {
+  @apply w-full rounded-md p-2 my-8 shadow-md hover:shadow-lg bg-purple-500 text-white hover:bg-purple-600 font-medium duration-300;
+}
+
+.form_heading {
+  @apply mt-5 mb-2 text-[1.3rem] font-bold w-full text-left;
+}
+
+.form_block {
+  @apply flex flex-col justify-between items-start p-5 rounded-md shadow-md bg-white;
+}
+.form_submit_btn {
+  @apply rounded-md p-2 my-3 shadow-md hover:shadow-lg  duration-300;
+}

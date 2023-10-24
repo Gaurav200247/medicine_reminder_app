@@ -1,0 +1,44 @@
+.auth_container {
+  @apply flex justify-center items-start pt-10 w-full h-screen bg-purple-100;
+}
+.auth_block {
+  @apply w-[30rem] bg-white min-h-[50vh] rounded-md shadow-md overflow-hidden flex flex-col justify-start items-center;
+}
+
+.auth_block_selector {
+  @apply flex justify-center items-center w-full;
+}
+.auth_block_selector > button {
+  @apply p-3 w-1/2 border-b-4 duration-300 font-medium;
+}
+.auth_block_selector > button:last-child {
+  @apply border-l-2;
+}
+.active_auth_btn {
+  @apply bg-purple-500 text-white;
+}
+
+.auth_form {
+  @apply flex flex-col justify-start items-center w-full p-5;
+}
+.auth_form > div,
+.auth_input {
+  @apply my-2 w-[80%];
+}
+.auth_input {
+  @apply w-full flex justify-start items-end;
+}
+
+.auth_input > div {
+  @apply w-[90%];
+}
+
+.auth_input > button {
+  @apply w-[10%] font-bold text-[1.2rem] pb-2;
+}
+.profile_pic_preview_container {
+  @apply flex justify-center items-center w-full;
+}
+.profile_pic_preview_container > div {
+  @apply bg-gray-200 hover:bg-gray-300 duration-300 rounded-full w-[8rem] h-[8rem] flex flex-col justify-center items-center cursor-pointer shadow-md overflow-hidden;
+}
