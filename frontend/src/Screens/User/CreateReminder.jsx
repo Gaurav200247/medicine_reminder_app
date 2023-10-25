@@ -2,9 +2,15 @@ import React, { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import FormInput from "../../Components/Reminder/FormInput";
 import { useCreateUserReminderMutation } from "../../Redux/APIs/RemindersAPI";
+import { useNavigate } from "react-router-dom";
 
 const CreateReminder = () => {
-  const [createUserReminder, result] = useCreateUserReminderMutation();
+  const navigate = useNavigate();
+
+  const [createUserReminder, { error, isLoading }] =
+    useCreateUserReminderMutation();
+
+  const [Meds, setMeds] = useState([]);
 
   const currentDate = new Date(Date.now());
 
@@ -22,19 +28,19 @@ const CreateReminder = () => {
       month: currentDate.getMonth() + 1,
       year: currentDate.getFullYear(),
 
-      hours: currentDate.getHours(),
+      hours:
+        currentDate.getHours() > 12
+          ? currentDate.getHours() - 12
+          : currentDate.getHours(),
       minutes: currentDate.getMinutes(),
       convention: "PM",
     },
   };
-
   const methods = useForm({
     defaultValues,
   });
 
   const { getValues, setValue, handleSubmit, reset } = methods;
-
-  const [Meds, setMeds] = useState([]);
 
   const AddMedicine = () => {
     const medicine = {
@@ -70,12 +76,20 @@ const CreateReminder = () => {
     createUserReminder(RequestBody)
       .then(() => {
         alert("Reminder Created Successfully !!");
+        setMeds([]);
         reset(defaultValues); // resets all input fields
+        navigate("/account/reminders");
       })
       .catch((err) => alert(err?.message));
   };
 
-  console.log({ result });
+  if (error) {
+    alert(error);
+  }
+
+  if (isLoading) {
+    return <h1>Loading...</h1>;
+  }
 
   return (
     <FormProvider {...methods}>

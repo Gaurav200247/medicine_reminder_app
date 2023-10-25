@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BiPlusCircle } from "react-icons/bi";
 import SingleReminder from "../../Components/SingleReminder";
 import { useGetUserRemindersQuery } from "../../Redux/APIs/RemindersAPI";
@@ -7,6 +7,10 @@ import { Link } from "react-router-dom";
 const MyReminders = () => {
   const { isLoading, error, data, refetch } = useGetUserRemindersQuery();
   const reminders = data?.reminders;
+
+  useEffect(() => {
+    refetch();
+  }, []);
 
   if (error) {
     alert(error.data);
